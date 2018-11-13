@@ -57,5 +57,5 @@ end
 puts "Your total is #{checkout(cart: cart, coupons: coupons)}"
 
 def consolidate_cart(cart)
-	
+	return_hash={}
 end
