@@ -58,6 +58,11 @@ end
 def checkout(cart, coupons)
   cart = apply_coupons(cart, coupons)
   cart = apply_clearance(cart)
+  sum = 0
+  cart.each do |item_name, data|
+    sum += (data[:price] * data[:count])
+  end
+  sum
 end
 
 learn_cart = {
