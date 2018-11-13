@@ -43,7 +43,7 @@ def apply_coupons(cart, coupons)
       end
     end
   end
-  #binding.pry
+  binding.pry
   cart
 end
 
@@ -60,6 +60,6 @@ learn_cart = {
   "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
 }
 
-coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0},
+coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0}
            ]
 apply_coupons(learn_cart, coupons)
