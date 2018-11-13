@@ -32,11 +32,12 @@ def apply_coupons(cart, coupons)
           amount = cart[item_key][:count] / coupon[:num]
           cart[item_key][:count] -= coupon[:num]
           cart[item_key + " W/COUPON"][:count] += amount
+        else
+          amount = cart[item_key][:count] / coupon[:num]
+          clearance=cart[item_key][:clearance]
+          cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
+          cart[item_key][:count] -= coupon[:num]
         end
-        amount = cart[item_key][:count] / coupon[:num]
-        clearance=cart[item_key][:clearance]
-        cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
-        cart[item_key][:count] -= coupon[:num]
     #  end
     end
   end
