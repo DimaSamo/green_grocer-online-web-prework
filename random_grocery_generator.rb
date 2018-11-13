@@ -56,5 +56,6 @@ end
 
 puts "Your total is #{checkout(cart: cart, coupons: coupons)}"
 
-def consolidate_cart
+def consolidate_cart(cart)
+	
 end
