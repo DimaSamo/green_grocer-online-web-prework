@@ -28,6 +28,11 @@ def apply_coupons(cart, coupons)
     #    cart.delete(item_key)
     #    cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
     #  elsif cart[item_key][:count] > coupon[:num]
+        if cart.has_key?(item_key + " W/COUPON")
+          amount = cart[item_key][:count] / coupon[:num]
+          cart[item_key][:count] -= coupon[:num]
+          cart[item_key + " W/COUPON"][:count] += amount
+        end
         amount = cart[item_key][:count] / coupon[:num]
         clearance=cart[item_key][:clearance]
         cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
