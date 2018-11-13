@@ -32,6 +32,7 @@ def apply_coupons(cart, coupons)
           amount = cart[item_key][:count] / coupon[:num]
           cart[item_key][:count] -= coupon[:num]
           cart[item_key + " W/COUPON"][:count] += amount
+          binding.pry
         else
           amount = cart[item_key][:count] / coupon[:num]
           clearance=cart[item_key][:clearance]
@@ -41,7 +42,7 @@ def apply_coupons(cart, coupons)
     #  end
     end
   end
-  binding.pry
+  #binding.pry
   cart
 end
 
