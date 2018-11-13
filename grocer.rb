@@ -14,12 +14,14 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  item_key = coupons[:item]
-  if cart.has_key?(item_key)
-    if coupons[:num] == cart[item_key][:count]
-      clearance=cart[item_key][:clearance]
-      cart.delete(item_key)
-      cart[item_key + "W/COUPON"] = {price: coupons[:cost], clearance: clearance, count: 1}
+  coupons.each do |coupon|
+    item_key = coupon[:item]
+    if cart.has_key?(item_key)
+      if coupons[:num] == cart[item_key][:count]
+        clearance=cart[item_key][:clearance]
+        cart.delete(item_key)
+        cart[item_key + "W/COUPON"] = {price: coupons[:cost], clearance: clearance, count: 1}
+      end
     end
   end
 end
