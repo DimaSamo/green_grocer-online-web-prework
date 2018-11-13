@@ -70,3 +70,10 @@ def consolidate_cart(cart)
 	end
 	return_hash
 end
+
+cartz = [
+  {"AVOCADO" => {:price => 3.0, :clearance => true }},
+  {"AVOCADO" => {:price => 3.0, :clearance => true }},
+  {"KALE"    => {:price => 3.0, :clearance => false}}
+]
+consolidate_cart(cartz)
