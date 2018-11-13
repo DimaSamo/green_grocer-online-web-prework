@@ -33,3 +33,10 @@ end
 def checkout(cart, coupons)
   # code here
 end
+
+learn_cart = {
+  "AVOCADO" => {:price => 3.0, :clearance => true, :count => 3},
+  "KALE"    => {:price => 3.0, :clearance => false, :count => 1}
+}
+
+coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0}]
