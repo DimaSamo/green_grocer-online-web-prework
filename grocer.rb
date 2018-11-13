@@ -14,7 +14,12 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  # code here
+  item_key = coupouns[:item]
+  if cart.has_key?(item_key)
+    if coupons[:num] == cart[item_key][:count]
+      cart.delete(item_key)
+    end
+  end
 end
 
 def apply_clearance(cart)
