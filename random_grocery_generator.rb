@@ -76,4 +76,4 @@ cartz = [
   {"AVOCADO" => {:price => 3.0, :clearance => true }},
   {"KALE"    => {:price => 3.0, :clearance => false}}
 ]
-consolidate_cart(cartz)
+puts consolidate_cart(cartz)
