@@ -63,7 +63,11 @@ def checkout(cart, coupons)
   cart.each do |item_name, data|
     sum += (data[:price] * data[:count])
   end
-  sum
+  if sum > 100
+    sum*0.9
+  else
+    sum
+  end
 end
 
 learn_cart = {
