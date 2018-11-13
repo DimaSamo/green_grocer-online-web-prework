@@ -2,7 +2,7 @@ def consolidate_cart(cart)
   return_hash={}
   cart.each do |item_hash|
   	item_hash.each do |item, data|
-  		if !return_hash.haskey?(item)
+  		if !return_hash.has_key?(item)
   			return_hash[item]=data
   			return_hash[item][:count] = 1
   		else
