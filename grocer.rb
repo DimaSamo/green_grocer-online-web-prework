@@ -17,10 +17,10 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     item_key = coupon[:item]
     if cart.has_key?(item_key)
-      if coupons[:num] == cart[item_key][:count]
+      if coupon[:num] == cart[item_key][:count]
         clearance=cart[item_key][:clearance]
         cart.delete(item_key)
-        cart[item_key + "W/COUPON"] = {price: coupons[:cost], clearance: clearance, count: 1}
+        cart[item_key + "W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: 1}
       end
     end
   end
