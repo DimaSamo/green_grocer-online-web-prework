@@ -14,7 +14,7 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  item_key = coupouns[:item]
+  item_key = coupons[:item]
   if cart.has_key?(item_key)
     if coupons[:num] == cart[item_key][:count]
       clearance=cart[item_key][:clearance]
