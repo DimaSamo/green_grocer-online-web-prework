@@ -1,4 +1,5 @@
 require_relative 'grocer'
+require 'pry'
 
 def items
 	[
@@ -55,3 +56,26 @@ coupons.each do |coupon|
 end
 
 puts "Your total is #{checkout(cart: cart, coupons: coupons)}"
+
+def consolidate_cart(cart)
+	return_hash={}
+	cart.each do |item_hash|
+		item_hash.each do |item, data|
+			if !return_hash.haskey?(item)
+				return_hash[item]=data
+				return_hash[item][:count] = 1
+				binding.pry
+			else
+				return_hash[item][:count] += 1
+			end
+		end
+	end
+	return_hash
+end
+
+cartz = [
+  {"AVOCADO" => {:price => 3.0, :clearance => true }},
+  {"AVOCADO" => {:price => 3.0, :clearance => true }},
+  {"KALE"    => {:price => 3.0, :clearance => false}}
+]
+puts consolidate_cart(cartz)
