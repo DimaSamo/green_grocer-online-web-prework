@@ -64,6 +64,7 @@ def checkout(cart, coupons)
     sum += (data[:price] * data[:count])
   end
   sum
+  sum/10 if sum > 100
 end
 
 learn_cart = {
