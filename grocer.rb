@@ -1,19 +1,16 @@
 def consolidate_cart(cart)
-  #def consolidate_cart(cart)
-  	return_hash={}
-  	cart.each do |item_hash|
-  		item_hash.each do |item, data|
-  			if !return_hash.haskey?(item)
-  				return_hash[item]=data
-  				return_hash[item][:count] = 1
-  				binding.pry
-  			else
-  				return_hash[item][:count] += 1
-  			end
+  return_hash={}
+  cart.each do |item_hash|
+  	item_hash.each do |item, data|
+  		if !return_hash.haskey?(item)
+  			return_hash[item]=data
+  			return_hash[item][:count] = 1
+  		else
+  			return_hash[item][:count] += 1
   		end
   	end
-  	return_hash
   end
+  	return_hash
 end
 
 def apply_coupons(cart, coupons)
