@@ -58,4 +58,15 @@ puts "Your total is #{checkout(cart: cart, coupons: coupons)}"
 
 def consolidate_cart(cart)
 	return_hash={}
+	cart.each do |item_hash|
+		item_hash.each do |item, data|
+			if !return_hash.haskey?(item)
+				return_hash[item]=data
+				return_hash[item][:count] = 1
+			else
+				return_hash[item][:count] += 1
+			end
+		end
+	end
+	return_hash
 end
