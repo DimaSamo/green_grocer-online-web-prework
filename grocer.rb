@@ -21,21 +21,21 @@ def apply_coupons(cart, coupons)
       if coupon[:num] == cart[item_key][:count]
         clearance=cart[item_key][:clearance]
         cart.delete(item_key)
-        cart[item_key + "W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: 1}
+        cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: 1}
       elsif cart[item_key][:count] % coupon[:num] == 0
         amount = cart[item_key][:count] / coupon[:num]
         clearance=cart[item_key][:clearance]
         cart.delete(item_key)
-        cart[item_key + "W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
+        cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
       elsif cart[item_key][:count] > coupon[:num]
         amount = cart[item_key][:count] / coupon[:num]
         clearance=cart[item_key][:clearance]
-        cart[item_key + "W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
+        cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
         cart[item_key][:count] -= coupon[:num]
       end
     end
   end
-  binding.pry
+  #binding.pry
 end
 
 def apply_clearance(cart)
