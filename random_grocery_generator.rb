@@ -1,4 +1,5 @@
 require_relative 'grocer'
+require 'pry'
 
 def items
 	[
@@ -63,6 +64,7 @@ def consolidate_cart(cart)
 			if !return_hash.haskey?(item)
 				return_hash[item]=data
 				return_hash[item][:count] = 1
+				binding.pry
 			else
 				return_hash[item][:count] += 1
 			end
