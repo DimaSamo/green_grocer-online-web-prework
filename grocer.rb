@@ -60,5 +60,5 @@ learn_cart = {
 }
 
 coupons = [{:item => "AVOCADO", :num => 2, :cost => 5.0},
-           {:item => "AVOCADO", :num => 2, :cost => 5.0}]
+           {:item => "AVOCADO", :num => 2, :cost => 5.0}, {:item => "AVOCADO", :num => 2, :cost => 5.0}]
 apply_coupons(learn_cart, coupons)
