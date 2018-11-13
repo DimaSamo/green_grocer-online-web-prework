@@ -18,21 +18,21 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     item_key = coupon[:item]
     if cart.has_key?(item_key)
-      if coupon[:num] == cart[item_key][:count]
-        clearance=cart[item_key][:clearance]
-        cart.delete(item_key)
-        cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: 1}
-      elsif cart[item_key][:count] % coupon[:num] == 0
-        amount = cart[item_key][:count] / coupon[:num]
-        clearance=cart[item_key][:clearance]
-        cart.delete(item_key)
-        cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
-      elsif cart[item_key][:count] > coupon[:num]
+    #  if coupon[:num] == cart[item_key][:count]
+    #    clearance=cart[item_key][:clearance]
+    #    cart.delete(item_key)
+    #    cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: 1}
+    #  elsif cart[item_key][:count] % coupon[:num] == 0
+    #    amount = cart[item_key][:count] / coupon[:num]
+    #    clearance=cart[item_key][:clearance]
+    #    cart.delete(item_key)
+    #    cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
+    #  elsif cart[item_key][:count] > coupon[:num]
         amount = cart[item_key][:count] / coupon[:num]
         clearance=cart[item_key][:clearance]
         cart[item_key + " W/COUPON"] = {price: coupon[:cost], clearance: clearance, count: amount}
         cart[item_key][:count] -= coupon[:num]
-      end
+    #  end
     end
   end
   #binding.pry
